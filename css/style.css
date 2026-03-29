@@ -40,7 +40,6 @@ a:hover {
   text-decoration: underline;
 }
 
-/* ───────────────────────── Hero / Header ───────────────────────── */
 .hero {
   position: relative;
   text-align: center;
@@ -74,7 +73,6 @@ a:hover {
   font-size: 1.05rem;
 }
 
-/* ───────────────────────── Stats Cards ───────────────────────── */
 .stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -111,7 +109,6 @@ a:hover {
   letter-spacing: .08em;
 }
 
-/* ───────────────────────── Controls ───────────────────────── */
 .controls {
   display: flex;
   flex-wrap: wrap;
@@ -173,7 +170,6 @@ a:hover {
   background: var(--clr-accent-lt);
 }
 
-/* ───────────────────────── Results Count ───────────────────────── */
 .results-count {
   max-width: 1100px;
   margin: 0 auto .5rem;
@@ -182,7 +178,6 @@ a:hover {
   color: var(--clr-muted);
 }
 
-/* ───────────────────────── Table ───────────────────────── */
 .table-wrapper {
   max-width: 1100px;
   margin: 0 auto 3rem;
@@ -235,7 +230,6 @@ a:hover {
   background: var(--clr-card);
 }
 
-/* Rank column narrow */
 #filmsTable th:first-child,
 #filmsTable td:first-child {
   text-align: center;
@@ -243,14 +237,12 @@ a:hover {
   color: var(--clr-muted);
 }
 
-/* Right-align box office */
 #filmsTable th:nth-child(5),
 #filmsTable td:nth-child(5) {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-/* ───────────────────────── Footer ───────────────────────── */
 footer {
   text-align: center;
   padding: 2rem 1.5rem;
@@ -259,7 +251,6 @@ footer {
   border-top: 1px solid var(--clr-border);
 }
 
-/* ───────────────────────── Responsive ───────────────────────── */
 @media (max-width: 600px) {
   .stats {
     grid-template-columns: repeat(2, 1fr);
@@ -267,4 +258,91 @@ footer {
   .controls {
     flex-direction: column;
   }
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+  z-index: 1000;
+}
+
+.modal-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  background: rgba(35,38,53,.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--clr-border);
+  border-radius: 16px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.6);
+  transform: translateY(30px) scale(.95);
+  transition: .35s;
+}
+
+.modal-backdrop.open .modal {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.modal-year {
+  color: var(--clr-accent-lt);
+  margin-bottom: 1rem;
+}
+
+.modal-info {
+  margin: 1rem 0;
+  color: var(--clr-muted);
+}
+
+.gross-bar {
+  margin-top: 1.2rem;
+}
+
+.gross-track {
+  height: 22px;
+  background: rgba(255,255,255,.06);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.gross-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #6c63ff, #00ffa6);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  font-size: .75rem;
+  font-weight: bold;
+  color: white;
+  transition: width 1s ease;
 }
